@@ -60,7 +60,9 @@ function renderIssue(issue) {
   });
   if (activeObject) {
     window.requestAnimationFrame(() => {
-      activeObject.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      window.setTimeout(() => {
+        activeObject.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+      }, 80);
     });
   }
 }
@@ -68,6 +70,12 @@ function renderIssue(issue) {
 function pickRandomIssue() {
   const issue = issues[Math.floor(Math.random() * issues.length)];
   renderIssue(issue);
+}
+
+function pickInitialIssue() {
+  const requestedIssueId = new URLSearchParams(window.location.search).get("issue");
+  const requestedIssue = issues.find((issue) => issue.id === requestedIssueId);
+  renderIssue(requestedIssue || issues[Math.floor(Math.random() * issues.length)]);
 }
 
 function fixIssue(id) {
@@ -108,4 +116,11 @@ modal.addEventListener("click", (event) => {
   if (event.target === modal) modal.classList.add("hidden");
 });
 
-pickRandomIssue();
+window.cloudCafePreviewIssue = (id) => {
+  const issue = issues.find((item) => item.id === id);
+  if (!issue) return false;
+  renderIssue(issue);
+  return true;
+};
+
+pickInitialIssue();

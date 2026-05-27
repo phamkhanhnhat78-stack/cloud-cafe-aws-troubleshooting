@@ -105,15 +105,20 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
-.issue-card { padding: 24px; }
+.issue-card { padding: 20px; }
+.issue-card h3 {
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+.issue-card p { line-height: 1.45; }
 .status-box {
   display: flex;
   align-items: center;
   gap: 10px;
   border: 2px dashed var(--line);
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
-  margin: 18px 0;
+  margin: 14px 0;
   background: #fff;
 }
 .status-dot { width: 14px; height: 14px; border-radius: 999px; background: var(--red); display: inline-block; }
@@ -233,8 +238,8 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
   filter: grayscale(.8);
 }
 .broken-route {
-  width: 118px;
-  height: 92px;
+  width: 100px;
+  height: 78px;
   border: 6px solid var(--red);
   border-right: 0;
   border-bottom: 0;
@@ -247,9 +252,9 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
   background: var(--red);
 }
 .broken-route::before {
-  left: 34px;
-  top: 35px;
-  width: 68px;
+  left: 28px;
+  top: 28px;
+  width: 58px;
   height: 8px;
   transform: rotate(35deg);
 }
@@ -274,16 +279,16 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
   text-align: center;
 }
 .closed-placard {
-  width: 96px;
-  padding: 13px 0;
+  width: 86px;
+  padding: 11px 0;
   border-radius: 8px;
   background: #fff3dc;
   color: #36313b;
   transform: translate(-50%, -50%) rotate(-8deg);
 }
 .blocked-barrier {
-  width: 138px;
-  padding: 12px 0;
+  width: 116px;
+  padding: 10px 0;
   border-color: #8f2d24;
   border-radius: 6px;
   background: repeating-linear-gradient(135deg, #f5f0df 0 18px, #d64d3d 18px 36px);
@@ -291,89 +296,100 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
   transform: translate(-50%, -50%) rotate(-8deg);
 }
 .traffic-cone {
-  width: 82px;
-  height: 95px;
+  width: 62px;
+  height: 74px;
   background: linear-gradient(180deg, #f0642f 0 24%, #fff 24% 37%, #f0642f 37% 68%, #fff 68% 79%, #f0642f 79%);
   clip-path: polygon(50% 0, 82% 78%, 100% 78%, 100% 100%, 0 100%, 0 78%, 18% 78%);
   filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, .2));
 }
 .off-screen {
-  width: 88px;
-  padding: 14px 0;
+  width: 72px;
+  padding: 11px 0;
   border-radius: 8px;
   background: #20242c;
   color: #fff;
 }
 .warning-badge {
-  width: 76px;
-  height: 76px;
+  width: 58px;
+  height: 58px;
   border: 5px solid #8f2d24;
   border-radius: 50%;
   background: #ffe07a;
   color: #8f2d24;
-  font-size: 46px;
+  font-size: 36px;
   font-weight: 900;
-  line-height: 64px;
+  line-height: 48px;
   text-align: center;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, .2);
 }
 .order-overflow {
-  width: 72px;
-  height: 72px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   background: #d64d3d;
   color: #fff;
-  font-size: 25px;
-  line-height: 64px;
+  font-size: 21px;
+  line-height: 50px;
 }
 .denied-pass {
-  width: 116px;
-  padding: 12px 8px;
+  width: 94px;
+  padding: 10px 7px;
   border-radius: 10px;
   background: #dcecff;
   color: #8f2d24;
-  font-size: 14px;
+  font-size: 12px;
 }
 .question-box {
-  width: 72px;
-  height: 72px;
+  width: 58px;
+  height: 58px;
   border: 5px solid var(--line);
   border-radius: 14px;
   background: #fff3dc;
   color: #8f2d24;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 900;
-  line-height: 60px;
+  line-height: 48px;
   text-align: center;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, .2);
 }
 .blank-log {
-  width: 106px;
-  padding: 14px 8px;
+  width: 86px;
+  padding: 11px 7px;
   border-radius: 8px;
   background: #fffdf8;
   color: #8f2d24;
-  font-size: 15px;
+  font-size: 12px;
 }
 .hotspot-label {
   position: absolute;
   left: 50%;
-  top: -48px;
+  bottom: calc(100% + 22px);
   transform: translateX(-50%);
   width: max-content;
-  min-width: 92px;
-  padding: 6px 9px;
+  max-width: 138px;
+  padding: 5px 8px;
   border: 2px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 253, 248, .96);
   color: var(--ink);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.12;
   text-align: center;
   opacity: 0;
   pointer-events: none;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, .14);
+}
+.open-sign .hotspot-label {
+  top: calc(100% + 22px);
+  bottom: auto;
+}
+.coffee-machine .hotspot-label,
+.staff-pass .hotspot-label,
+.log-book .hotspot-label {
+  left: auto;
+  right: 0;
+  transform: none;
 }
 .cafe-object.active-target .hotspot-label,
 .cafe-object.fixed .hotspot-label,
@@ -384,7 +400,7 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
 .cafe-object.active-target .hotspot-label::before {
   content: "FIX THIS";
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   color: var(--red);
   font-size: 11px;
   letter-spacing: .08em;
@@ -429,15 +445,15 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
 .steam {
   position: absolute;
   top: 0;
-  width: 12px;
-  height: 30px;
+  width: 10px;
+  height: 24px;
   border-left: 4px solid var(--red);
   border-radius: 50%;
   opacity: .9;
 }
-.steam-one { left: 58px; }
-.steam-two { left: 90px; top: -12px; }
-.steam-three { left: 122px; }
+.steam-one { left: 42px; }
+.steam-two { left: 66px; top: -10px; }
+.steam-three { left: 90px; }
 .coffee-machine.fixed .steam { display: none; }
 .order-pile {
   left: 62.2%;
@@ -526,10 +542,52 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
   .game-layout, .cards-grid, .modal-grid { grid-template-columns: 1fr; }
   .nav { align-items: flex-start; gap: 16px; flex-direction: column; }
   .scene-title { margin-bottom: -50px; }
+  .issue-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(160px, auto);
+    gap: 8px 16px;
+    align-items: center;
+    padding: 18px;
+  }
+  .issue-card .label { grid-column: 1 / -1; }
+  .issue-card h3,
+  .issue-card #issue-instruction { grid-column: 1; }
+  .issue-card .status-box {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    align-self: stretch;
+    margin: 0;
+  }
+  .issue-card .button {
+    grid-column: 2;
+    justify-self: stretch;
+  }
 }
 
 @media (max-width: 640px) {
   .hero-content, .section { padding: 50px 16px; }
   .cafe-stage { overflow-x: auto; }
   .cards-grid { grid-template-columns: 1fr; }
+  .issue-card { padding: 16px; }
+  .issue-card h3 { font-size: 1.05rem; }
+  .issue-card #issue-instruction { font-size: .94rem; }
+  .status-box { font-size: .94rem; }
+  .hotspot-label {
+    max-width: 112px;
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+}
+
+@media (max-width: 520px) {
+  .issue-card {
+    grid-template-columns: 1fr;
+  }
+  .issue-card h3,
+  .issue-card #issue-instruction,
+  .issue-card .status-box,
+  .issue-card .button {
+    grid-column: 1;
+    grid-row: auto;
+  }
 }
