@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Café | AWS Troubleshooting Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="brand">Cloud Café</div>
+      <div class="nav-links">
+        <a href="#game">Play</a>
+        <a href="#documentation">AWS Documentation</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+      </div>
+    </nav>
+    <section class="hero-content">
+      <p class="eyebrow">Interactive AWS Troubleshooting Portfolio</p>
+      <h1>Fix a stick-figure coffee shop. Learn the cloud problem behind it.</h1>
+      <p class="hero-text">
+        Cloud Café uses a simple coffee shop simulation to explain real AWS operations issues: routing,
+        security rules, EC2 health, monitoring, alerting, queues, IAM access, S3 organization, and logs.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#game">Start Random Issue</a>
+        <a class="button secondary" href="https://github.com/phamkhanhnhat78-stack/cloud-cafe-aws-troubleshooting" target="_blank" rel="noreferrer">View GitHub Repo</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="game" class="section game-section">
+      <div class="section-heading">
+        <p class="eyebrow">One issue per visit</p>
+        <h2>Cloud Café Troubleshooting Game</h2>
+        <p>
+          A random café problem appears. Click the highlighted object to fix it, then read the AWS equivalent.
+          Refresh the page or click <strong>Try Another Issue</strong> to see a new scenario.
+        </p>
+      </div>
+
+      <div class="game-layout">
+        <aside class="issue-card">
+          <p class="label">Current issue</p>
+          <h3 id="issue-title">Loading issue...</h3>
+          <p id="issue-instruction">Click the correct object in the café scene.</p>
+          <div class="status-box">
+            <span id="status-dot" class="status-dot"></span>
+            <span id="status-text">Waiting for fix</span>
+          </div>
+          <button id="new-issue-button" class="button secondary" type="button">Try Another Issue</button>
+        </aside>
+
+        <section class="cafe-stage" aria-label="Interactive stick-figure coffee shop scene">
+          <div class="scene-title" id="scene-title">Coffee Shop</div>
+          <div class="street">street / internet</div>
+          <button class="object door-path" data-object="door-path" aria-label="Broken entrance path">broken path</button>
+          <button class="object open-sign" data-object="open-sign" aria-label="Closed open sign">CLOSED</button>
+          <button class="object guard" data-object="guard" aria-label="Overblocking guard">guard</button>
+          <div class="shop-building">
+            <div class="shop-name">Cloud Café</div>
+            <button class="object chair" data-object="chair" aria-label="Chair blocking cashier">chair</button>
+            <button class="object register" data-object="register" aria-label="Cash register power issue">register off</button>
+            <button class="object coffee-machine" data-object="coffee-machine" aria-label="Overheated coffee machine">coffee machine</button>
+            <button class="object order-pile" data-object="order-pile" aria-label="Pile of orders">orders</button>
+            <button class="object staff-pass" data-object="staff-pass" aria-label="Staff access pass">SSM pass</button>
+            <button class="object storage-box" data-object="storage-box" aria-label="Unlabeled storage box">S3 box</button>
+            <button class="object log-book" data-object="log-book" aria-label="Empty log book">log book</button>
+            <div class="cat cat-one">=^.^=</div>
+            <div class="cat cat-two">=o.o=</div>
+            <div class="staff">staff</div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <button id="close-modal" class="modal-close" type="button" aria-label="Close dialog">×</button>
+        <p class="eyebrow">Issue fixed</p>
+        <h2 id="modal-title">You fixed the issue.</h2>
+        <div class="modal-grid">
+          <div>
+            <h3>Real-world problem</h3>
+            <p id="modal-real"></p>
+          </div>
+          <div>
+            <h3>AWS equivalent</h3>
+            <p id="modal-cloud"></p>
+          </div>
+          <div>
+            <h3>AWS services</h3>
+            <p id="modal-services"></p>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="modal-new-issue" class="button primary" type="button">Try Another Issue</button>
+          <a class="button secondary" href="#documentation">View AWS Documentation</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="documentation" class="section docs-section">
+      <div class="section-heading">
+        <p class="eyebrow">Technical documentation</p>
+        <h2>Real AWS Project Behind the Game</h2>
+        <p>
+          The game explains the same skills used in a secure AWS operations project: private EC2 access,
+          VPC networking, monitoring, alerting, and incident-response thinking.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="info-card"><h3>VPC Networking</h3><p>Public and private subnets separate internet-facing resources from internal workloads.</p></article>
+        <article class="info-card"><h3>Private EC2</h3><p>The internal server has no public IP and should not be directly exposed to the internet.</p></article>
+        <article class="info-card"><h3>Session Manager</h3><p>Administrators can access the private EC2 instance through IAM and AWS Systems Manager.</p></article>
+        <article class="info-card"><h3>CloudWatch + SNS</h3><p>CPU alarms detect high utilization and send email notifications through SNS.</p></article>
+      </div>
+
+      <div class="workflow">
+        <h3>Planned AWS workflow</h3>
+        <ol>
+          <li>Create a custom VPC with public and private subnets.</li>
+          <li>Attach an Internet Gateway to the public route table.</li>
+          <li>Use a NAT Gateway for private subnet outbound internet access.</li>
+          <li>Launch a private EC2 instance without a public IP address.</li>
+          <li>Attach an IAM role with Systems Manager permissions.</li>
+          <li>Connect using Session Manager instead of opening SSH to the world.</li>
+          <li>Create a CloudWatch CPU alarm and connect it to an SNS email topic.</li>
+          <li>Run a stress test, confirm the alarm, and document screenshots.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="section troubleshooting-section">
+      <div class="section-heading">
+        <p class="eyebrow">Cloud support mindset</p>
+        <h2>Troubleshooting Notes</h2>
+      </div>
+      <div class="cards-grid">
+        <article class="info-card"><h3>Private EC2 cannot reach internet</h3><p>Check private route table, NAT Gateway status, public subnet route to IGW, SG outbound, and NACL rules.</p></article>
+        <article class="info-card"><h3>Session Manager unavailable</h3><p>Check IAM role, SSM Agent, instance profile, NAT Gateway, or SSM VPC endpoints.</p></article>
+        <article class="info-card"><h3>No SNS email received</h3><p>Confirm the SNS subscription, alarm action, alarm state, and spam folder.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Cloud Café: AWS Troubleshooting Portfolio</p>
+    <a href="https://github.com/phamkhanhnhat78-stack/cloud-cafe-aws-troubleshooting" target="_blank" rel="noreferrer">GitHub Repository</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
