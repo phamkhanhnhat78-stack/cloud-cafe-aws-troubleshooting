@@ -265,34 +265,40 @@ h3 { font-size: 1.2rem; margin-bottom: 10px; }
   filter: grayscale(.8);
 }
 .broken-route {
-  width: 100px;
-  height: 78px;
-  border: 6px solid var(--red);
-  border-right: 0;
-  border-bottom: 0;
-  transform: translate(-50%, -50%) rotate(-20deg);
+  width: 164px;
+  height: 76px;
+  background: transparent;
+  transform: translate(-50%, -50%);
 }
 .broken-route::before,
 .broken-route::after {
-  content: "";
   position: absolute;
-  background: var(--red);
 }
 .broken-route::before {
-  left: 28px;
-  top: 28px;
-  width: 58px;
-  height: 8px;
-  transform: rotate(35deg);
+  content: "";
+  left: 4px;
+  top: 38px;
+  width: 128px;
+  border-top: 10px dashed var(--red);
+  transform: rotate(-18deg);
+  transform-origin: left center;
+  filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, .18));
 }
 .broken-route::after {
-  right: 1px;
-  bottom: 0;
-  width: 28px;
-  height: 28px;
+  content: "×";
+  right: 0;
+  top: 17px;
+  width: 52px;
+  height: 52px;
+  border: 6px solid var(--red);
   border-radius: 50%;
   background: #fffaf0;
-  border: 5px solid var(--red);
+  color: var(--red);
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 40px;
+  text-align: center;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, .18);
 }
 .closed-placard,
 .blocked-barrier,
